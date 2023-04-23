@@ -1,0 +1,6 @@
+var getIsActive = function(tagList, tagItem) {
+  return tagList.indexOf(tagItem) != -1
+}
+module.exports = {
+  isActive: getIsActive
+}

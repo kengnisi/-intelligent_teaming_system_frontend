@@ -1,0 +1,71 @@
+<!--pages/addTeam/addTeam.wxml-->
+<wxs module="forTime" src="/utils/formatTime.wxs"></wxs>
+<form bindsubmit="submit" class="form">
+  <van-cell-group>
+    <van-field
+      required
+      value="{{ teamName }}"
+      placeholder="请输入队伍名"
+      label="队伍名"
+      data-type="teamName"
+      bind:change="changeTeamInfo"
+    />
+    <van-field
+      required
+      value="{{ description }}"
+      label="队伍描述"
+      type="textarea"
+      placeholder="请输入描述"
+      data-type="description"
+      bind:change="changeTeamInfo"
+      autosize
+    />
+    <view class="stepper">
+      人数： 
+      <van-stepper
+        value="{{ maxNum }}"
+        integer
+        data-type="maxNum"
+        bind:change="changeTeamInfo"
+        max="20"
+        min="2"/>
+    </view>
+    
+    <van-radio-group value="{{ status }}" bind:change="changeTeamInfo" data-type="status" class="radio">
+      类型：
+      <van-radio class="radio_item" name="0">公开</van-radio>
+      <van-radio class="radio_item" name="1">私密</van-radio>
+      <van-radio class="radio_item" name="2">加密</van-radio>
+    </van-radio-group>
+    <van-field
+      wx:if="{{status == '2'}}"
+      value="{{ password }}"
+      type="password"
+      label="密码"
+      bind:change="changeTeamInfo"
+      data-type="password"
+      placeholder="请输入密码"
+      required
+    />
+    <van-field
+      value="{{ forTime.formatTime(expireTime, 'yyyy-MM-dd hh:mm:ss') }}"
+      is-link
+      readonly
+      name="datePicker"
+      label="截止时间"
+      placeholder="点击选择时间"
+      bindtap="isShowSelectTime"
+    />
+    <van-datetime-picker
+      wx:if="{{showPicker}}"
+      value="{{selectTime}}"
+      min-date="{{minDate}}"
+      bind:confirm="onConfirm"
+      bind:cancel="cancelTime"
+    />
+    <view class="subBtn">
+    <van-button form-type="submit" type="info" size="large" round>保存</van-button>
+  </view>
+  </van-cell-group>
+</form>
+<van-toast id="van-toast" />

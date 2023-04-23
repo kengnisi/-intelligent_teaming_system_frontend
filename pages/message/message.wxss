@@ -1,0 +1,25 @@
+/* pages/message/message.wxss */
+.message{
+  padding: 10rpx 24rpx;
+  box-sizing: border-box;
+}
+.messageItem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.avatar {
+  margin-right: 15rpx;
+}
+.info {
+  
+}
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15rpx;
+  border-bottom: 2rpx solid rgba(0, 0, 0, .1);
+  font-size: small;
+  color: rgba(0, 0, 0, .6);
+}

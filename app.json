@@ -1,0 +1,63 @@
+{
+  "entryPagePath": "pages/home/home",
+  "pages": [
+    "pages/mine/mine",
+    "pages/home/home",
+    "pages/team/team",
+    "pages/searchPage/searchPage",
+    "pages/editPage/editPage",
+    "pages/searchResultPage/searchResultPage",
+    "pages/mine/personalInfo/personalInfo",
+    "pages/mine/myCreateTeam/myCreateTeam",
+    "pages/mine/myJoinTeam/myJoinTeam",
+    "pages/teamDetail/teamDetail",
+    "pages/addTeam/addTeam",
+    "pages/updateTeam/updateTeam",
+    "pages/avatarTest/avatarTest",
+    "pages/message/message",
+    "pages/chat/chat",
+    "pages/mine/myTags/myTags",
+    "pages/userSearch/userSearch",
+    "pages/teamSearch/teamSearch",
+    "pages/testUserShow/testUserShow",
+    "pages/userDetail/userDetail",
+    "pages/userExchange/userExchange"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "/assets/images/tarbar/message (2).png",
+        "selectedIconPath": "/assets/images/tarbar/message-activity.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/assets/images/tarbar/home.png",
+        "selectedIconPath": "/assets/images/tarbar/home_activity.png"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "text": "队伍",
+        "iconPath": "/assets/images/tarbar/addteam.png",
+        "selectedIconPath": "/assets/images/tarbar/addteam_activity.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/assets/images/tarbar/mine.png",
+        "selectedIconPath": "/assets/images/tarbar/mine_activity.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

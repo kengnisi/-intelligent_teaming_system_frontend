@@ -1,0 +1,44 @@
+/* components/userItem/userItem.wxss */
+page {
+  height: 100%;
+  background-color: #EFEFEF;
+}
+.userItem {
+  margin: 0 32rpx;
+  margin-top: 3rem;
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  text-align: center;
+  box-shadow: 0 0 24rpx rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+.avatarAndName {
+  position: absolute;
+  top: -2rem;
+}
+.detail {
+  margin-top: 6rem;
+  margin-bottom: 12rpx;
+}
+.profile {
+  margin: 16rpx;
+  color: #959594;
+}
+.operate {
+  width: 100%;
+  display: flex;
+}
+.operate view {
+  flex: 1;
+  padding: 12rpx;
+  color: #FFFFFF;
+}
+.btn1 {
+  background-color: #05A47C;
+}
+.btn2 {
+  background-color: #AAAAAA;
+}

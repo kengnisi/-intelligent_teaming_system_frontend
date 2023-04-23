@@ -1,0 +1,5 @@
+/* pages/mine/myJoinTeam.wxss */
+page{
+  height: 100%;
+  background-color: #F7F8FA;
+}

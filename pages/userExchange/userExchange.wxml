@@ -1,0 +1,56 @@
+<!--pages/chat/chat.wxml-->
+<wxs module="fmtTime" src="/utils/formatTime.wxs"></wxs>
+<wxs module="teamStatus" src="/utils/teamStatus.wxs"></wxs>
+<nav-bar bind:back="back">
+  <view slot="center">
+    <view class="nav">
+      {{acceptUserInfo.username}}
+    </view>
+  </view>
+</nav-bar>
+<scroll-view scroll-into-view="{{scrollTo}}" scroll-y style="height: {{contentHeight + 32}}px;" class="groupMessage">
+  <block wx:for="{{chatList}}" wx:key="id">
+    <block wx:if="{{userInfo.id != item.sendUserId}}">
+      <view class="top">
+        <image class="face" src="{{item.avatarUrl}}" bindload="debounceLoaded"></image>
+        <view class="nick">{{item.name}}</view>
+      </view>
+      <view class="bot">
+        <view class="bot-text">{{item.message}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="top-right">
+        <view></view>
+        <view class="top-2">
+          <view class="nick-right">{{userInfo.username}}</view>
+          <image class="face-right" src="{{userInfo.avatarUrl}}" bindload="debounceLoaded"></image>
+        </view>
+      </view>
+      <view class="bot-right">
+        <text class="bot-text">{{item.message}}</text>
+      </view>
+    </block>
+
+  </block>
+  <view id="scrollTo"></view>
+</scroll-view>
+<!-- 发送输入框 -->
+<view class="pub-comment">
+  <view class="pub-left">
+    <van-field
+      value="{{ message }}"
+      type="textarea"
+      autosize="{maxHeight: 50, minHeight: 10}"
+      border="{{ false }}"
+      bindinput="getValue"
+    />
+  </view>
+  <view class="pub-button" bindtap="publishChat">发送</view>
+  <view class="other"
+  >
+  <van-icon size="30px" name="plus" color="#797575"/>
+  </view>
+
+</view>
+ 

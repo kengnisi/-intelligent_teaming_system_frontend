@@ -1,0 +1,9 @@
+/* components/nav-bar/nav-bar.wxss */
+.default {
+  display: none;
+}
+
+.slot:empty + .default {
+  display: flex;
+  justify-content: center;
+}

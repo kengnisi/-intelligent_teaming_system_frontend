@@ -1,0 +1,6 @@
+<!--pages/mine/myJoinTeam.wxml-->
+<block wx:for="{{myJoinTeamList}}" wx:key="id">
+  <teamItem teamItemInfo="{{item}}" userInfo="{{userInfo}}"/>
+</block>
+
+

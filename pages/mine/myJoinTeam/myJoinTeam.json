@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我所在的队伍",
+  "usingComponents": {
+    "teamItem": "/components/teamItem/teamItem"
+  }
+}

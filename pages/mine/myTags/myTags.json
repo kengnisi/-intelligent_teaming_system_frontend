@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#638FB4",
+  "navigationBarTitleText": "个人标签",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index"
+  }
+}

@@ -1,0 +1,25 @@
+<van-nav-bar>
+  <view slot="left">
+    <view class="slot">
+      <slot name="left"></slot>
+    </view>
+    <view class="default" bindtap="back">
+      <van-icon name="arrow-left" />
+      <text class="back">返回</text>
+    </view>
+  </view>
+  <view slot="title">
+    <view class="slot" v-if>
+      <slot name="center"></slot>
+    </view>
+    <view class="default">
+    </view>
+  </view>
+  <view slot="right">
+    <view class="slot">
+      <slot name="right"></slot>
+    </view>
+    <view class="default">
+    </view>
+  </view>
+</van-nav-bar>

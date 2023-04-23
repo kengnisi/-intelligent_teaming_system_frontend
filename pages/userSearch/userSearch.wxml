@@ -1,0 +1,26 @@
+<!--pages/mine/myTags/myTags.wxml-->
+<wxs module="isActive" src="/utils/isActive.wxs"></wxs>
+<van-search
+  value="{{ searchKey }}"
+  shape="round"
+  placeholder="请输入搜索关键词"
+/>
+<view class="userTagPage">
+  <view class="tagListShow option_item" >
+    <view class="tag_item" wx:if="{{selectedTags.length !== 0}}" wx:for="{{selectedTags}}" wx:key="*this">{{item}}</view>
+    <view wx:if="{{selectedTags.length == 0}}">搜索标签为空</view>
+  </view>
+  <van-button round type="info" bindtap="confirm">确认</van-button>
+  <view class="tag_option">
+    <view class="option_item" wx:for="{{tagList}}" wx:key="id">
+      <view class="parTag"><van-icon name="bookmark-o" />{{item.text}}</view>
+      <view class="children">
+        <view class="{{isActive.isActive(selectedTags, children.text) ? 'active': ''}} tag_item" bindtap="changed" data-tagName="{{children.text}}" data-tagId="{{children.id}}" wx:for="{{item.children}}" wx:for-item="children" wx:key="id">
+        {{children.text}}
+      </view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />

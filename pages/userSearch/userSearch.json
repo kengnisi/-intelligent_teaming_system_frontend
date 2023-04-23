@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "搜索用户",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-search": "@vant/weapp/search/index"
+  }
+}

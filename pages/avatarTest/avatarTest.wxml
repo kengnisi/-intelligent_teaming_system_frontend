@@ -1,0 +1,10 @@
+<!--pages/avatarTest/avatarTest.wxml-->
+<van-button color="#7232dd" open-type="getUserInfo" bind:getuserinfo="getUserInfo">单色按钮</van-button>
+
+<button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" src="{{avatarUrl}}"></image>
+</button> 
+<input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+<button bindtap="onChooseAvatar">
+  获取用户信息
+</button>

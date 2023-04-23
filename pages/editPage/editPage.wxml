@@ -1,0 +1,11 @@
+<!--pages/editPage/editPage.wxml-->
+
+<form catchsubmit="onsubmit">
+  <van-cell-group>
+    <van-field model:value="{{ info }}" label="{{title}}" placeholder="请输入{{title}}" name="{{attr}}" input-align="right" />
+  </van-cell-group>
+  <view class="subBtn">
+    <van-button form-type="submit" type="info" size="large" round>保存</van-button>
+  </view>
+
+</form>

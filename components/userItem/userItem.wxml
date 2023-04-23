@@ -1,0 +1,38 @@
+<!--components/userItem/userItem.wxml-->
+<!-- id: 10,
+      username: "马六",
+      openId: "c3504ca7658a8f7f6121ad7a72811721",
+      avatarUrl: "https://img.yzcdn.cn/vant/cat.jpeg",
+      createTime: "2023-02-20T04:26:44.000Z",
+      email: null,
+      gender: null,
+      id: 10,
+      openId: "c3504ca7658a8f7f6121ad7a72811721",
+      phone: null,
+      profile: "找工作好难",
+      tags: ["求职"],
+      userRole: 0,
+      userStatus: 0,
+      username: "马六" -->
+<view class="userItem" bindtap="toUserDetail" mark:userId="{{userInfo.id}}">
+  <view class="avatarAndName" >
+    <van-image
+      width="6rem"
+      height="6rem"
+      fit="fill"
+      round
+      src="https://img.yzcdn.cn/vant/cat.jpeg"
+    />
+    <view>{{userInfo.username}}</view>
+  </view>
+  <view class="detail">
+    <view class="tags">
+      <van-tag plain style="margin: 0 4rpx;" type="success" wx:for="{{userInfo.tags}}" size="medium" wx:key="*this">{{item}}</van-tag>
+    </view>
+    <view class="profile">{{userInfo.profile}}</view>
+  </view>
+  <view class="operate">
+    <view class="btn1" bindtap="toexchange">联系</view>
+    <view class="btn2" >关注</view>
+  </view>
+</view>

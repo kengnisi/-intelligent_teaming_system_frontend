@@ -1,0 +1,5 @@
+<!--pages/mine/myCreateTeam/myCreateTeam.wxml-->
+<block wx:for="{{myCreateTeamList}}" wx:key="id">
+  <teamItem teamItemInfo="{{item}}" userInfo="{{userInfo}}"/>
+</block>
+

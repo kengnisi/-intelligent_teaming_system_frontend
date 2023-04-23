@@ -1,0 +1,20 @@
+<!--pages/mine/myTags/myTags.wxml-->
+<wxs module="isActive" src="/utils/isActive.wxs"></wxs>
+<view class="userTagPage">
+  <view class="tagListShow option_item">
+    <view class="tag_item" wx:for="{{newTagList}}" wx:key="*this">{{item}}</view>
+  </view>
+  <van-button round type="info" bindtap="confirm">确认</van-button>
+  <view class="tag_option">
+    <view class="option_item" wx:for="{{tagList}}" wx:key="id">
+      <view class="parTag">{{item.text}}</view>
+      <view class="children">
+        <view class="{{isActive.isActive(newTagList, children.text) ? 'active': ''}} tag_item" bindtap="changed" data-tagName="{{children.text}}" data-tagId="{{children.id}}" wx:for="{{item.children}}" wx:for-item="children" wx:key="id">
+        {{children.text}}
+      </view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,38 @@
+<!--pages/home/home.wxml-->
+<van-search
+  bindtap="toSearchPage"
+  value="{{ value }}"
+  shape="round"
+  placeholder="请输入搜索关键词"
+/>
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="最新用户"></van-tab>
+  <van-tab title="推荐用户"></van-tab>
+</van-tabs>
+<scroll-view bindscrolltolower="bindscrolltolower" scroll-y id="scroller" style="height: {{contentHeight}}px;">
+  <userItem userInfo="{{item}}" wx:for="{{recommendList}}" wx:key="id"></userItem>
+  <!-- <van-card
+    wx:for="{{recommendList}}"
+    wx:key="id"
+    desc="{{item.profile}}"
+    title="{{item.username}}"
+    thumb="https://img.yzcdn.cn/vant/cat.jpeg"
+  >
+    <view slot="price-top">
+      <van-tag
+       color="#d81e06"
+       size="medium"
+       style="margin: 10rpx 10rpx;"
+       round
+       plain
+       type="success"
+       wx:for="{{item.tags}}"
+       wx:for-item="tagItem"
+       wx:key="*this"
+      >
+        {{tagItem}}
+      </van-tag>
+    </view>
+  </van-card> -->
+</scroll-view>
+<van-toast id="van-toast" />

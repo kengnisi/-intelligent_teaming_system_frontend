@@ -1,0 +1,63 @@
+/* pages/team/team.wxss */
+.tab_nav {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+}
+.team_class {
+  flex-grow: 1;
+}
+.select_options {
+  display: inline-block;
+  padding-left: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 90%;
+  border-left: 2rpx solid rgba(0, 0, 0, .3);
+  padding-right: 20rpx;
+}
+.addBtn {
+  position: fixed;
+  bottom: 150rpx;
+  right: 50rpx;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 50%;
+  border: 5rpx red solid;
+}
+/* 筛选框 */
+.option {
+  box-sizing: border-box;
+  padding: 24rpx;
+}
+.title {
+  text-align: center;
+}
+.option_item {
+  margin-bottom: 24rpx;
+}
+.item_title {
+  padding: 10rpx 0;
+}
+.item_content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content_item {
+  padding: 10rpx 0;
+  width: 30%;
+  margin: 20rpx 1.5%;
+  text-align: center;
+  background-color: #F6F6F6;
+  border-radius: 999em;
+}
+.content_item_active {
+  background-color: #FFF3EB;
+  color: #DB703C;
+  border: 2rpx solid #F2DFCD;
+}
+.btn {
+  position: fixed;
+  bottom: 20rpx;
+  
+}

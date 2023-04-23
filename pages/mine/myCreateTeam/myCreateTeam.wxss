@@ -1,0 +1,5 @@
+/* pages/mine/myCreateTeam/myCreateTeam.wxss */
+page{
+  height: 100%;
+  background-color: #F7F8FA;
+}

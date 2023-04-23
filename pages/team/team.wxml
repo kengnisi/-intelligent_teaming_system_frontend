@@ -1,0 +1,106 @@
+<!--pages/team/team.wxml-->
+<wxs module="btnAuth" src="/utils/getBtnAuth.wxs"></wxs>
+<wxs module="forTime" src="/utils/formatTime.wxs"></wxs>
+<van-search
+  value="{{ value }}"
+  shape="round"
+  placeholder="请输入搜索关键词"
+/>
+<view class="tab_nav">
+  <van-tabs class="team_class" active="{{ active }}" bind:change="onChange">
+    <van-tab title="队伍大厅"></van-tab>
+    <van-tab title="热门推荐"></van-tab>
+  </van-tabs>
+  <!-- 筛选按钮 -->
+  <view class="select_options" bindtap="openOption">筛选<van-icon name="filter-o" /></view>
+</view>
+
+<scroll-view bindscrolltolower="bindscrolltolower" scroll-y id="scroller" style="height: {{contentHeight}}px;">
+      <block wx:for="{{teamList}}" wx:key="id">
+        <teamItem id="{{item.id}}" teamItemInfo="{{item}}" userInfo="{{userInfo}}" btnAuth="{{btnAuth.btnAuth(userInfo, item)}}" bind:addTeam="addTeam" bind:renew="renew" />
+      </block>
+    </scroll-view>
+<!-- 输入密码框 -->
+<van-dialog use-slot title="{{status == 2 ? '密码' : '确认加入队伍'}}" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="confirm">
+  <van-cell-group>
+    <van-field wx:if="{{status == 2}}" value="{{ value }}" placeholder="请输入密码" type="password" border="{{ false }}" bind:change="onChangePsw" />
+  </van-cell-group>
+</van-dialog>
+<!-- 提示框 -->
+<van-toast id="van-toast" />
+<!-- 添加按钮 -->
+<van-icon name="plus" class="addBtn" color="red" size="50px" bindtap="toAddTeam"/>
+<!-- 筛选弹出层 -->
+<van-popup
+  show="{{ optionShow }}"
+  closeable
+  round
+  position="bottom"
+  custom-style="height: 80%;"
+  bind:close="optionClose"
+>
+  <view class="option">
+    <view class="title">全部筛选</view>
+    <view class="option_item">
+      <view class="item_title">
+        队伍类型
+      </view>
+      <view class="item_content" bindtap="changeStatus">
+        <view class="content_item {{activeStatus == item.status ? 'content_item_active': ''}}" wx:for="{{teamStatus}}" data-status="{{item.status}}" wx:key="status">
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+    <view class="option_item">
+      <view class="item_title">
+        队伍人数
+      </view>
+      <view class="item_content">
+        <van-stepper value="{{maxNum}}" min="2" max="20" bind:change="numberChange" />
+      </view>
+    </view>
+    <view class="option_item">
+      <view class="item_title">
+      </view>
+      <picker 
+        mode="date" 
+        value="{{date}}"
+        start="{{startDate}}"
+        bindchange="bindDateChange"
+        style="margin-bottom: 24rpx;"
+      >
+        <view class="picker">
+          截止日期: {{date}}
+        </view>
+      </picker>
+      <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+        <view class="picker">
+          截止时间: {{time}}
+        </view>
+      </picker>
+
+      <!-- <view>
+        <van-field
+          value="{{ forTime.formatTime(expireTime, 'yyyy-MM-dd hh:mm:ss') }}"
+          item-height="30"
+          is-link
+          readonly
+          name="datePicker"
+          placeholder="点击选择时间"
+          bindtap="isShowSelectTime"
+        />
+        <van-datetime-picker
+          wx:if="{{showPicker}}"
+          value="{{selectTime}}"
+          min-date="{{minDate}}"
+          bind:confirm="onConfirm"
+          bind:cancel="cancelTime"
+        />
+      </view> -->
+    </view>
+    <view class="btn">
+      <van-button round color="#FFA302" type="primary" bindtap="reset">重置</van-button>
+      <van-button color="#FD7304" round type="primary" bindtap="finish">完成</van-button>
+    </view>
+  </view>
+</van-popup>

@@ -1,0 +1,27 @@
+<!--pages/searchResultPage/searchResultPage.wxml-->
+<view class="content">
+  <van-card
+    wx:for="{{searchUser}}"
+    wx:key="id"
+    desc="{{item.profile}}"
+    title="{{item.username}}"
+    thumb="https://img.yzcdn.cn/vant/cat.jpeg"
+  >
+    <view slot="price-top">
+      <van-tag
+       color="#d81e06"
+       size="medium"
+       style="margin: 10rpx 10rpx;"
+       round
+       plain
+       type="success"
+       wx:for="{{item.tags}}"
+       wx:for-item="tagItem"
+       wx:key="*this"
+      >
+        {{tagItem}}
+      </van-tag>
+    </view>
+  </van-card>
+</view>
+<van-toast id="van-toast" />

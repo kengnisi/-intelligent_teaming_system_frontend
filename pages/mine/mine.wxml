@@ -1,0 +1,84 @@
+<!--pages/mine/mine.wxml-->
+<wxs module="forTime" src="../../utils/formatTime.wxs"></wxs>
+
+<image class="bg-image" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+<view class="bg-cover"></view>
+<view class="avatar_image">
+  <van-image
+  round
+  width="6rem"
+  height="6rem"
+  src="{{userInfo.avatarUrl}}"
+/>
+<view class="username" bindtap="tologin">
+  {{!!userInfo.username ? userInfo.username : "未登录"}}
+</view>
+</view>
+<!-- 个人标签展示 -->
+<van-cell
+  title="个人标签"
+  icon="bookmark-o"
+  url="/pages/mine/myTags/myTags"
+  is-link
+/>
+<view class="user_tags">
+  <view class="tag_item" wx:for="{{userInfo.tags}}" wx:key="*this">
+    <van-tag
+      plain
+      size="large"
+      type="danger"
+    >
+      {{item}}
+    </van-tag>
+  </view>
+</view>
+
+<!-- 个人信息 -->
+<van-cell
+  icon="setting-o"
+  is-link
+  title="个人信息"
+  link-type="navigateTo"
+  url="/pages/mine/personalInfo/personalInfo"
+/>
+<!-- 创建队伍 -->
+<van-cell
+  icon="friends-o"
+  is-link
+  title="创建的队伍"
+  link-type="navigateTo"
+  url="/pages/mine/myCreateTeam/myCreateTeam"
+/>
+<!-- 所在队伍 -->
+<van-cell
+  icon="location-o"
+  is-link
+  title="所在的队伍"
+  link-type="navigateTo"
+  url="/pages/mine/myJoinTeam/myJoinTeam"
+/>
+<!-- 创建时间 -->
+<van-cell
+  icon="aim"
+  title="创建时间"
+  link-type="navigateTo"
+  url="/pages/mine/personalInfo/personalInfo"
+  value="{{forTime.formatTime(userInfo.createTime, 'yyyy-MM-dd')}}"
+/>
+<!-- 授权按钮 -->
+<van-popup
+  round
+  show="{{ loginShow }}"
+  closeable
+  position="bottom"
+  custom-style="height: 30%;"
+  bind:close="onClose"
+>
+<view class="popup">
+  <view>您尚未登录</view>
+  <view class="loginBtn">
+    <van-button custom-style="padding: 0 50rpx" icon="/assets/images/weixin.png" type="primary" color="#02C161">微信快速登陆</van-button>
+  </view>
+</view>
+
+</van-popup>

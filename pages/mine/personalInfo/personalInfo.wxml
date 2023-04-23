@@ -1,0 +1,12 @@
+<!--pages/mine/personalInfo.wxml-->
+<!--pages/mine/mine.wxml-->
+<van-cell title="昵称" is-link value="{{userInfo.username}}" bind:click="toEdit" data-title="昵称" data-info="{{userInfo.username}}" data-attr="username" />
+<van-cell title="头像" is-link>
+  <van-image width="100" height="100"
+src="{{userInfo.avatarUrl}}" />
+</van-cell>
+<van-cell title="性别" is-link value="{{userInfo.gender}}" />
+<van-cell title="电话" is-link value="{{userInfo.phone}}" />
+<van-cell title="邮箱" is-link value="{{userInfo.email}}" />
+<van-cell title="创建事件" is-link value="{{userInfo.createtime}}" />
+

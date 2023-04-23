@@ -1,0 +1,99 @@
+<!--pages/chat/chat.wxml-->
+<wxs module="fmtTime" src="/utils/formatTime.wxs"></wxs>
+<wxs module="teamStatus" src="/utils/teamStatus.wxs"></wxs>
+<nav-bar bind:back="back">
+  <view slot="center">
+    <view class="nav" bindtap="onNavTabItemTap">
+      <view wx:if="{{teamInfo.name}}" class="team_name {{currentIndex === 0 ? 'active': ''}}" data-index="0">{{teamInfo.name}}({{teamInfo.teamMembers.length+1}}/{{teamInfo.maxNum}})</view>
+      <view class="icon">|</view>
+      <view class="team_detail {{currentIndex === 1 ? 'active': ''}}" data-index="1">详细</view></view>
+  </view>
+</nav-bar>
+<swiper bindchange="onSwiperChange" style="height: {{contentHeight + 92}}px;" current="{{currentIndex}}">
+  <swiper-item style="height: 100%;" class="messageInfo">
+    <scroll-view scroll-into-view="{{scrollTo}}" scroll-y style="height: {{contentHeight + 32}}px;" class="groupMessage">
+      <block wx:for="{{chatList}}" wx:key="id">
+        <block wx:if="{{userInfo.id != item.userId}}">
+          <view class="top">
+            <image class="face" src="{{item.avatarUrl}}" bindload="debounceLoaded"></image>
+            <view class="nick">{{item.name}}</view>
+          </view>
+          <view class="bot">
+            <view class="bot-text">{{item.message}}</view>
+          </view>
+        </block>
+        <block wx:if="{{userInfo.id == item.userId}}">
+          <view class="top-right">
+            <view></view>
+            <view class="top-2">
+              <view class="nick-right">{{item.name}}</view>
+              <image class="face-right" src="{{item.avatarUrl}}" bindload="debounceLoaded"></image>
+            </view>
+          </view>
+          <view class="bot-right">
+            <text class="bot-text">{{item.message}}</text>
+          </view>
+        </block>
+
+      </block>
+      <view id="scrollTo"></view>
+    </scroll-view>
+    <!-- 发送输入框 -->
+    <view class="pub-comment">
+      <view class="pub-left">
+        <van-field
+          value="{{ message }}"
+          type="textarea"
+          autosize="{maxHeight: 50, minHeight: 10}"
+          border="{{ false }}"
+          bindinput="getValue"
+        />
+      </view>
+      <view class="pub-button" bindtap="publishChat">发送</view>
+      <view class="other"
+      >
+      <van-icon size="30px" name="plus" color="#797575"/>
+      </view>
+      
+    </view>
+  </swiper-item>
+  <swiper-item class="team_detail_page">
+    <!-- 队伍信息 -->
+    <view class="detail">
+      <view class="detail_name">{{teamInfo.name}}</view>
+      <view class="team_id">队伍id：{{teamInfo.id}}</view>
+      <view class="detail_description">{{
+        teamInfo.description
+      }}</view>
+    </view>
+
+    <view class="team_member">
+      <view class="team_leader">
+        <view>队长</view>
+        <view class="leader_context">
+          <van-image round width="50" height="50" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+          <view class="createrName">{{teamInfo.createUser.username}}</view>
+        </view>
+      </view>
+      <view class="team_order">
+        <van-cell title="其他成员" is-link />
+        <view class="order_context">
+          <view class="item" wx:for="{{teamInfo.teamMembers}}" wx:key="id">
+          <van-image
+            width="35"
+            height="35"
+            round
+            src="{{item.avatarUrl}}"
+          />
+        <view class="createrName">{{item.username}}</view>
+        </view>
+        </view>
+      </view>
+    </view>
+    <van-cell title="状态"  is-link>
+      <van-tag type="danger">{{teamStatus.teamStatus(teamInfo.status)}}</van-tag>
+    </van-cell>
+    <van-cell title="过期时间" value="{{fmtTime.formatTime(teamInfo.createTime, 'yyyy-MM-dd hh-mm-ss')}}" is-link />
+    <van-cell title="创建时间" value="{{fmtTime.formatTime(teamInfo.expireTime, 'yyyy-MM-dd hh-mm-ss')}}" is-link />
+  </swiper-item>
+</swiper>

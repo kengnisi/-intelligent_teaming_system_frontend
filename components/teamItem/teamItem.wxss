@@ -1,0 +1,69 @@
+/* components/teamItem/teamItem.wxss */
+.team_item {
+  margin: 20rpx 16rpx;
+  padding: 15rpx;
+  background-color: #FFFFFF;
+  border-radius: 15rpx;
+  box-shadow: 0 0 5rpx 0 rgba(0, 0, 0, .6);
+}
+
+.team_item .content {
+  display: flex;
+  padding-bottom: 10rpx;
+}
+
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* 队伍信息 */
+.content .team_info {
+  flex: 1;
+  padding-right: 30rpx;
+}
+.team_info .team_name_number {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10rpx;
+}
+
+.team_name_number .team_name {
+  font-size: large;
+  font-weight: 800;
+  padding-right: 20rpx;
+  flex: 1;
+  -webkit-line-clamp: 2;
+}
+
+.team_name_number .num {
+  font-size: small;
+  width: 150rpx;
+}
+
+/* c创建者 */
+.content .create_user {
+  width: 120rpx;
+  text-align: center;
+}
+.create_user .user_name {
+  font-size: xx-small;
+  width: 100%;
+  -webkit-line-clamp: 2;
+}
+
+.team_info .team_description {
+  -webkit-line-clamp: 5;
+  margin-bottom: 10rpx;
+}
+.team_info .team_createTime_expireTime {
+  font-size: x-small;
+  color: rgba(0, 0, 0, .6);
+}
+
+
+.team_item .operate {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,22 @@
+<!--pages/searchPage/searchPage.wxml-->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  show-action shape="round"
+  bind:search="onSearch"
+  bind:cancel="onCancel" 
+/>
+<view class="searchedTag">
+  <van-row>
+    <van-col span="8" wx:for="{{selectedTags}}" wx:key="id">
+      <van-tag wx:if="{{ show.primary }}" closeable size="medium" type="primary" id="{{index}}" bind:close="onClose">
+        {{item.text}}
+      </van-tag>
+    </van-col>
+  </van-row>
+</view>
+<view class="searchList">
+  <van-tree-select items="{{ showTagsList }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" max="{{ max }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
+</view>
+
+<van-button type="info" bind:click="toSearchRes">搜索</van-button>

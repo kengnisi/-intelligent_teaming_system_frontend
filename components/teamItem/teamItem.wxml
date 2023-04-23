@@ -1,0 +1,37 @@
+<!--components/teamItem/teamItem.wxml-->
+<wxs module="forTime" src="/utils/formatTime.wxs"></wxs>
+<view class="team_item" mark:teamId="{{teamItemInfo.id}}" mark:status="{{teamItemInfo.status}}">
+  <view class="content" bindtap="toTeamDetail">
+    <view class="team_info">
+      <view class="team_name_number">
+        <view class="team_name clamp">{{teamItemInfo.name}}</view>
+        <van-icon wx:if="{{teamItemInfo.status != 0}}" name="goods-collect" color="red"/>
+        <view class="num">人数：{{(teamItemInfo.teamMembers.length + 1)+'/'+teamItemInfo.maxNum}}</view>
+      </view>
+      <view class="team_description clamp">
+        {{teamItemInfo.description}}
+      </view>
+      <view class="team_createTime_expireTime">
+        截止时间: {{forTime.formatTime(teamItemInfo.expireTime)}}
+      </view>
+    </view>
+    <view class="create_user">
+      <view class="user_avatar">
+        <van-image round width="3rem" height="3rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      </view>
+      <view class="user_name clamp">队长：{{teamItemInfo.createUser.username}}</view>
+    </view>
+  </view>
+  <view class="operate">
+    <van-button round type="info" wx:if="{{btnAuth.add}}" bindtap="addTeam">加入</van-button>
+    <van-button round type="warning" wx:if="{{btnAuth.quit}}" bindtap="quitTeam">退出</van-button>
+    <van-button wx:if="{{btnAuth.update}}" round type="primary" bindtap="updateTeam">修改</van-button>
+    <van-button wx:if="{{btnAuth.del}}" round  type="danger" bindtap="deleteTeam">解散</van-button>
+  </view>
+</view>
+<van-toast id="van-toast" />
+<!-- <van-dialog use-slot title="{{status == 2 ? '密码' : '确认加入队伍'}}" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="confirm">
+  <van-cell-group>
+    <van-field wx:if="{{status == 2}}" value="{{ value }}" placeholder="请输入密码" type="password" border="{{ false }}" bind:change="onChangePsw" />
+  </van-cell-group>
+</van-dialog> -->

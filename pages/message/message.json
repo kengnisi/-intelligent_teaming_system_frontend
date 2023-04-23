@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "通知",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-image": "@vant/weapp/image/index"
+  }
+}

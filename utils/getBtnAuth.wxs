@@ -1,0 +1,25 @@
+var getBtnAuth = function(userInfo, teamItemInfo) {
+  var btnAuth = {
+    add: true,
+    quit: true,
+    update: true,
+    del: true
+  }
+  if (userInfo.id != teamItemInfo.userId) {
+    btnAuth.update = false
+    btnAuth.del = false
+  }
+  if (teamItemInfo.userId == userInfo.id || (teamItemInfo.teamMembers.some(function(item) {
+      return item.id == userInfo.id
+    }))) {
+    btnAuth.add = false
+    btnAuth.quit = true
+  } else {
+    btnAuth.add = true
+    btnAuth.quit = false
+  }
+  return btnAuth
+}
+module.exports = {
+  btnAuth: getBtnAuth
+}

@@ -1,0 +1,6 @@
+/* pages/editPage/editPage.wxss */
+.subBtn{
+  width: 90%;
+  text-align: center;
+  margin: 20rpx auto;
+}
