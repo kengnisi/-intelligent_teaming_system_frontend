@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "队伍搜索结果",
+  "usingComponents": {
+    "teamItem": "/components/teamItem/teamItem",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-toast": "@vant/weapp/toast/index"
+  }
+}

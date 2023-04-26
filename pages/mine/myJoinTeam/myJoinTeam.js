@@ -1,4 +1,4 @@
-// pages/mine/myCreateTeam/myCreateTeam.js
+// pages/mine/myJoinTeam/myJoinTeam.js
 import {getMyJoinTeam} from "../../../services/team-service"
 import userStore from "../../../store/userInfoStore"
 Page({
@@ -10,13 +10,13 @@ Page({
     myJoinTeamList: [],
     userInfo: {}
   },
-  onLoad() {
-    this.reqMyCreateTeam()
+  onShow() {
+    this.reqMyJoinTeam()
     this.setData({
       userInfo: userStore.getUserInfo()
     })
   },
-  async reqMyCreateTeam() {
+  async reqMyJoinTeam() {
     const res = await getMyJoinTeam()
     console.log(res)
     await userStore.CurrentUser()
@@ -26,5 +26,8 @@ Page({
     this.setData({
       myJoinTeamList: res.data
     })
-  }
+  },
+  async renew() {
+    await this.reqMyJoinTeam()
+  },
 })

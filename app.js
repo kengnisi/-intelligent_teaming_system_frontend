@@ -25,28 +25,11 @@ App({
   globalData: {
     userInfo: null
   },
-  login() {
-    wx.login({
-      success: async (res) => {
-        console.log(res)
-        if (res.code) {
-          await userLogin(res.code)
-          await userStore.CurrentUser()
-        }
-      },
-      fail(err) {
-        console.log(err)
-      }
-    })
-  },
   async geuCurrentUser() {
     const res = await userStore.CurrentUser()
     console.log("当前用户信息",res)
     if(res.code == 200) {
       this.initSocket()
-    }
-    if(res.code != 200) {
-      await this.login()
     }
   },
   initSocket() {

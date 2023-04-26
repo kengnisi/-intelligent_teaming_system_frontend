@@ -21,12 +21,13 @@
     "pages/teamSearch/teamSearch",
     "pages/testUserShow/testUserShow",
     "pages/userDetail/userDetail",
-    "pages/userExchange/userExchange"
+    "pages/userExchange/userExchange",
+    "pages/searchTeamResPage/searchTeamResPage"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
+    "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

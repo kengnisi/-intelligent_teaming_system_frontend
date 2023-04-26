@@ -1,1 +1,9 @@
 /* pages/teamSearch/teamSearch.wxss */
+.recommend {
+  margin: 16rpx 24rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  margin: 12rpx 12rpx;
+}

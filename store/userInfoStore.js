@@ -13,6 +13,7 @@ class userStore {
   }
   async CurrentUser() {
     const res = await getCurrentUser()
+    console.log("store", res)
     this.setUserInfo(res.data)
     return res
   }

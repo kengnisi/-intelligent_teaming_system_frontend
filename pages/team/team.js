@@ -132,20 +132,29 @@ Page({
     })
     const res = await joinTeam(joinInfo)
     if(res.code == 200) {
-      this.reqTeamList()
+      this.setData({
+        page: 1,
+        teamList: []
+      })
+      await this.reqTeamList()
       Toast.success(res.description); 
       this.setData({ show: false });
       return
     }
     Toast.fail(res.description);
   },
+  // 输入密码
   onChangePsw(e) {
     this.setData({
       password: e.detail
     })
   },
-  renew() {
-    this.reqTeamList()
+  async renew() {
+    this.setData({
+      page: 1,
+      teamList: []
+    })
+    await this.reqTeamList()
   },
   toAddTeam() {
     wx.navigateTo({
@@ -249,4 +258,9 @@ Page({
     console.log("上拉加载更多")
     await this.reqTeamList()
   },
+  toSearch() {
+    wx.navigateTo({
+      url: '/pages/teamSearch/teamSearch',
+    })
+  }
 })

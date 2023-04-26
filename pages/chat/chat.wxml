@@ -71,7 +71,7 @@
       <view class="team_leader">
         <view>队长</view>
         <view class="leader_context">
-          <van-image round width="50" height="50" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+          <van-image round width="50" height="50" src="{{teamInfo.createUser.avatarUrl}}" />
           <view class="createrName">{{teamInfo.createUser.username}}</view>
         </view>
       </view>

@@ -34,10 +34,12 @@ page {
 .user_tags {
   padding: 16rpx 32rpx;
   display: flex;
+  flex-wrap: wrap;
 }
 .user_tags .tag_item {
   width: 33%;
   text-align: center;
+  margin-bottom: 4rpx;
 }
 
 /* 底部弹出栏 */

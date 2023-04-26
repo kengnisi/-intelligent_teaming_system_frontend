@@ -1,10 +1,12 @@
 import {Hrequest} from './index'
 
-export function userLogin(code) {
+export function userLogin(code, avatarUrl, nickName) {
   return Hrequest.post({
     url: 'user/login',
     data: {
-      code
+      code,
+      avatarUrl,
+      username: nickName
     }
   })
 }
@@ -69,5 +71,16 @@ export function changeParTags(tagIdList) {
   return Hrequest.post({
     url: 'user/changeTags',
     data: tagIdList
+  })
+}
+
+export function searchUserByKey(searchKey, page, limit) {
+  return Hrequest.get({
+    url: 'user/userSearchByKey',
+    data: {
+      searchKey,
+      limit,
+      page
+    }
   })
 }

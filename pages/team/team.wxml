@@ -5,6 +5,7 @@
   value="{{ value }}"
   shape="round"
   placeholder="请输入搜索关键词"
+  bindtap="toSearch"
 />
 <view class="tab_nav">
   <van-tabs class="team_class" active="{{ active }}" bind:change="onChange">
@@ -16,10 +17,10 @@
 </view>
 
 <scroll-view bindscrolltolower="bindscrolltolower" scroll-y id="scroller" style="height: {{contentHeight}}px;">
-      <block wx:for="{{teamList}}" wx:key="id">
-        <teamItem id="{{item.id}}" teamItemInfo="{{item}}" userInfo="{{userInfo}}" btnAuth="{{btnAuth.btnAuth(userInfo, item)}}" bind:addTeam="addTeam" bind:renew="renew" />
-      </block>
-    </scroll-view>
+  <block wx:for="{{teamList}}" wx:key="id">
+    <teamItem id="{{item.id}}" teamItemInfo="{{item}}" userInfo="{{userInfo}}" btnAuth="{{btnAuth.btnAuth(userInfo, item)}}" bind:addTeam="addTeam" bind:renew="renew" />
+  </block>
+</scroll-view>
 <!-- 输入密码框 -->
 <van-dialog use-slot title="{{status == 2 ? '密码' : '确认加入队伍'}}" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="confirm">
   <van-cell-group>
@@ -29,7 +30,8 @@
 <!-- 提示框 -->
 <van-toast id="van-toast" />
 <!-- 添加按钮 -->
-<van-icon name="plus" class="addBtn" color="red" size="50px" bindtap="toAddTeam"/>
+<van-button color="#777777" round type="primary" bindtap="toAddTeam" class="addBtn">创建</van-button>
+<!-- <van-icon name="plus"  color="red" size="50px" /> -->
 <!-- 筛选弹出层 -->
 <van-popup
   show="{{ optionShow }}"

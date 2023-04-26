@@ -1,0 +1,15 @@
+// 第一种方法：
+var formatGender = function (type) {
+  console.log(type)
+  if(type === '0') {
+    return '男'
+  }
+  if(type === '1') {
+    return '女'
+  }
+  return type
+}
+
+module.exports = {
+  formatGender:formatGender
+}

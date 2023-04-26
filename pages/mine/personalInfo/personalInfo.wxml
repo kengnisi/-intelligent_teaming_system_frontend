@@ -1,12 +1,18 @@
 <!--pages/mine/personalInfo.wxml-->
 <!--pages/mine/mine.wxml-->
+<wxs module="forGender" src="../../../utils/formatGender.wxs"></wxs>
+<wxs module="forTime" src="../../../utils/formatTime.wxs"></wxs>
 <van-cell title="昵称" is-link value="{{userInfo.username}}" bind:click="toEdit" data-title="昵称" data-info="{{userInfo.username}}" data-attr="username" />
 <van-cell title="头像" is-link>
-  <van-image width="100" height="100"
-src="{{userInfo.avatarUrl}}" />
+  <van-image 
+    width="100" 
+    height="100"
+    src="{{userInfo.avatarUrl}}"
+    bind:click="upAvatar"
+  />
 </van-cell>
-<van-cell title="性别" is-link value="{{userInfo.gender}}" />
-<van-cell title="电话" is-link value="{{userInfo.phone}}" />
-<van-cell title="邮箱" is-link value="{{userInfo.email}}" />
-<van-cell title="创建事件" is-link value="{{userInfo.createtime}}" />
+<van-cell title="性别" bind:click="toEdit" data-title="性别" data-info="{{userInfo.gender}}" data-attr="gender" is-link value="{{forGender.formatGender(userInfo.gender+'')}}" />
+<van-cell title="电话" bind:click="toEdit" data-title="电话" data-info="{{userInfo.phone}}" data-attr="phone" is-link value="{{userInfo.phone}}" />
+<van-cell title="邮箱" bind:click="toEdit" data-title="邮箱" data-info="{{userInfo.email}}" data-attr="email" is-link value="{{userInfo.email}}" />
+<van-cell title="创建时间" is-link value="{{forTime.formatTime(userInfo.createTime, 'yyyy-MM-dd')}}" />
 

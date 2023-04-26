@@ -1,1 +1,52 @@
-/* pages/teamDetail/teamDetail.wxss */
+/* pages/teamDetail/teamDetail.wxss */.team_detail_page {
+  box-sizing: border-box;
+  /* background-color: #fff; */
+}
+
+/* 队伍 */
+.team_detail_page .detail {
+  background-color: #fff;
+  margin: 8rpx 0;
+  padding: 8rpx 32rpx;
+}
+.detail .detail_name {
+  font-size: 150%;
+}
+.detail .team_id {
+  font-size: 80%;
+  color: rgb(121, 117, 117);
+  padding: 18rpx 0;
+}
+
+/* 队长 */
+.team_detail_page .team_leader {
+  background-color: #fff;
+  padding: 8rpx 32rpx;
+  margin: 8rpx 0;
+}
+.team_leader .leader_context {
+  padding-top: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.leader_context .createrName {
+  padding-left: 16rpx;
+}
+
+/* 队员 */
+.team_detail_page .team_order {
+  background-color: #fff;
+  margin: 24rpx 0;
+  padding: 8rpx 0;
+  box-sizing: border-box;
+}
+.team_order .order_context {
+  display: flex;
+  margin-top: 24rpx;
+}
+.team_order .item {
+  width: 20%;
+  font-size: 80%;
+  color: rgb(121, 117, 117);
+  text-align: center;
+}

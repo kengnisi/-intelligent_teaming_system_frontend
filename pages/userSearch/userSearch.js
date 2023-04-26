@@ -50,6 +50,12 @@ Page({
       tagList: tagList[0],
     })
   },
+  change(e) {
+    this.setData({
+      searchKey: e.detail,
+    });
+    console.log("搜索框变化", this.data.searchContent)
+  },
   //选择标签
   changed(option) {
     const {tagname} = option.target.dataset
@@ -70,10 +76,18 @@ Page({
   },
   // 确认选择
   async confirm() {
-    const { selectedTags } = this.data
+    const { selectedTags, searchKey } = this.data
     setSearchKeyStorage(selectedTags)
-    wx.navigateTo({
-      url: `/pages/searchResultPage/searchResultPage?tags=${selectedTags}`,
-    })
+    if(searchKey == "") {
+      wx.navigateTo({
+        url: `/pages/searchResultPage/searchResultPage?tags=${selectedTags}`,
+      })
+      return
+    }else {
+      wx.navigateTo({
+        url: `/pages/searchResultPage/searchResultPage?key=${searchKey}`,
+      })
+    }
+    
   }
 })

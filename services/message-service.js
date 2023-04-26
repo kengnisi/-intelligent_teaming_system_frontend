@@ -4,7 +4,8 @@ import {
 
 const URL = {
   TEAMMESSAGE: "message/teamMessage",
-  PERMESSAGE: "message/perMessage"
+  PERMESSAGE: "message/perMessage",
+  ALLPERMESSAGE: "message/allPerMessage"
 }
 
 /**
@@ -23,8 +24,14 @@ function getPerMessage(data) {
     data
   })
 }
+function getAllPerMessage() {
+  return Hrequest.post({
+    url: URL.ALLPERMESSAGE
+  })
+}
 
 export {
   getTeamMessage,
-  getPerMessage
+  getPerMessage,
+  getAllPerMessage
 }

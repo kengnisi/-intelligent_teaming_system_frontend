@@ -1,4 +1,14 @@
 {
   "navigationBarTitleText": "队伍详细",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tag": "@vant/weapp/tag/index"
+  }
 }

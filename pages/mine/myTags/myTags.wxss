@@ -4,8 +4,11 @@ body{
 }
 page {
   height: 100%;
-  background: -webkit-linear-gradient(bottom left,rgb(131,146,162),rgb(99,143,180));
-  color: #c2ccd4;
+  /* background: -webkit-linear-gradient(bottom left,rgb(131,146,162),rgb(99,143,180)); */
+  color: #000;
+}
+.van-empty__image{
+  height: 0 !important;
 }
 .userTagPage {
   box-sizing: border-box;
@@ -14,6 +17,8 @@ page {
 .tagListShow {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 48rpx !important;
+  height: 248rpx;
 }
 .option_item {
   background-color: rgba(255, 255, 255, .1);
@@ -24,20 +29,24 @@ page {
 /* 选项父标签 */
 .parTag {
   padding-bottom: 24rpx;
+  border-bottom: 2rpx solid rgba(0, 0, 0, .2);
 }
 /* 子选项 */
 .children {
   display: flex;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 .tag_item {
-  width: 30%;
+  width: 29%;
   text-align: center;
   padding: 10rpx 0;
   margin: 0 10rpx;
   margin-bottom: 24rpx;
+  border: 2rpx solid #ffffff;
 }
 .children .active {
   border-radius: 10rpx;
-  background-color: rgba(99,143,180, .7);
-}
+  color: #05A47E;
+  border: 2rpx solid #05A47E;
+} 

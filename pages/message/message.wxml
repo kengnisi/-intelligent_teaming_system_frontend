@@ -1,16 +1,29 @@
 <!--pages/message/message.wxml-->
+<wxs module="forTime" src="../../utils/formatTime.wxs"></wxs>
 <van-search value="{{ value }}" shape="round" placeholder="请输入搜索关键词" />
 <scroll-view scroll-y class="message" style="height: {{contentHeight}}px;">
   <view class="messageItem" bindtap="toChat" wx:for="{{teamList}}" wx:key="id" data-teamId="{{item.id}}">
     <view class="left">
-      <van-image radius="5" class="avatar" width="50" height="50" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      <van-image radius="5" class="avatar" width="50" height="50" src="{{item.createUser.avatarUrl}}" />
     </view>
     <view class="right">
       <view class="info">
         <view class="teamName">{{item.name}}</view>
         <view class="currtMessage">{{item.description}}</view>
       </view>
-      <view class="time">11.10</view>
+      <!-- <view class="time">11.10</view> -->
+    </view>
+  </view>
+  <view class="messageItem" wx:for="{{perAllMsgList}}" wx:key="index" data-userid="{{index}}" bindtap="toexchange">
+    <view class="left">
+      <van-image radius="5" class="avatar" width="50" height="50" src="{{userInfoList[index].avatarUrl}}" />
+    </view>
+    <view class="right">
+      <view class="info">
+        <view class="teamName">{{userInfoList[index].username}}</view>
+        <view class="currtMessage">{{item[item.length-1].message}}</view>
+      </view>
+      <view class="time">{{forTime.formatTime(item[item.length-1].createTime, 'hh:mm')}}</view>
     </view>
   </view>
 </scroll-view>

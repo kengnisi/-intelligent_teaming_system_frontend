@@ -1,6 +1,15 @@
 <!--pages/mine/myJoinTeam.wxml-->
+<wxs module="btnAuth" src="/utils/getBtnAuth.wxs"></wxs>
 <block wx:for="{{myJoinTeamList}}" wx:key="id">
-  <teamItem teamItemInfo="{{item}}" userInfo="{{userInfo}}"/>
+  <teamItem 
+    id="{{item.id}}"
+    btnAuth="{{btnAuth.btnAuth(userInfo, item)}}" 
+    teamItemInfo="{{item}}" 
+    userInfo="{{userInfo}}"
+    bind:renew="renew"
+  />
 </block>
+<!-- 提示框 -->
+<van-toast id="van-toast" />
 
 

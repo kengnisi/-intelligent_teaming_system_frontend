@@ -114,8 +114,6 @@ Page({
   },
   // 返回
   back() {
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
+    wx.navigateBack()
   }
 })

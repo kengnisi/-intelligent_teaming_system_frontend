@@ -1,13 +1,46 @@
 <!--pages/mine/myTags/myTags.wxml-->
 <wxs module="isActive" src="/utils/isActive.wxs"></wxs>
 <view class="userTagPage">
+  <van-button 
+    style="position: fixed;top: 20rpx;right: 20rpx;" 
+    icon="success" 
+    size="small" 
+    round 
+    color="#787878"
+    bindtap="confirm"
+  >
+    确认
+  </van-button>
   <view class="tagListShow option_item">
-    <view class="tag_item" wx:for="{{newTagList}}" wx:key="*this">{{item}}</view>
+    <!-- <view class="tag_item" wx:for="{{newTagList}}" wx:key="*this">{{item}}</view> -->
+    <van-empty
+      style="width: 100%;"
+      description="标签为空"
+      wx:if="{{newTagList.length == 0}}"
+    >
+      <view slot="image"></view>
+    </van-empty>
+    <van-tag
+      bind:close="tagClose"
+      data-index="{{index}}"
+      class="tag_item"
+      wx:for="{{newTagList}}"
+      closeable
+      size="large"
+      plain
+      color="#05A47E"
+      id="success"
+      wx:key="*this"
+      >
+      {{item}}
+      </van-tag>
+      <van-tag size="large" class="tag_item" type="success" bindtap="create">自定义添加</van-tag>
+      <!-- <van-button round type="info" ></van-button> -->
   </view>
-  <van-button round type="info" bindtap="confirm">确认</van-button>
   <view class="tag_option">
     <view class="option_item" wx:for="{{tagList}}" wx:key="id">
-      <view class="parTag">{{item.text}}</view>
+      <van-divider contentPosition="center">{{item.text}}</van-divider>
+      <!-- <view class="parTag"></view> -->
       <view class="children">
         <view class="{{isActive.isActive(newTagList, children.text) ? 'active': ''}} tag_item" bindtap="changed" data-tagName="{{children.text}}" data-tagId="{{children.id}}" wx:for="{{item.children}}" wx:for-item="children" wx:key="id">
         {{children.text}}
@@ -18,3 +51,19 @@
   </view>
 </view>
 <van-toast id="van-toast" />
+<van-dialog
+  use-slot
+  title="自定义标签"
+  show="{{ show }}"
+  show-cancel-button
+  bind:confirm="confirmCreate"
+  bind:close="dialogClose"
+>
+  <van-field
+      value="{{ tagName }}"
+      input-align="center"
+      placeholder="请输入标签"
+      maxlength='5'
+      bind:change="tagNameChange"
+    />
+</van-dialog>

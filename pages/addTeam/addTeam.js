@@ -8,9 +8,9 @@ Page({
    */
   data: {
     // 队伍名
-    teamName: "大家一起摆烂",
+    teamName: "",
     // 队伍描述
-    description: "大家团结起来一起摆烂，谢谢",
+    description: "",
     // 队伍人数
     maxNum: 2,
     // 队伍类型

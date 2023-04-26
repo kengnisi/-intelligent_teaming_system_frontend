@@ -25,6 +25,7 @@ Page({
   },
   async reqTeamInfo() {
     const res = await getTeamById(this.data.teamId)
+    console.log("修改队伍", res)
     this.setData({
       currentTeam: res.data[0],
       selectTime: new Date(res.data[0].expireTime).getTime()
@@ -104,9 +105,7 @@ Page({
     const res = await updateTeam(resData)
     console.log(res)
     if(res.code = 200) {
-      wx.switchTab({
-        url: '/pages/team/team',
-      })
+      wx.navigateBack()
     }
   }
 })

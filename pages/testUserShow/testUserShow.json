@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "userItem": "/components/userItem/userItem"
+    "userItem": "/components/userItem/userItem",
+    "van-button": "@vant/weapp/button/index"
   }
 }

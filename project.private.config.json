@@ -148,6 +148,48 @@
           "query": "userId=8",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/teamSearch/teamSearch",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/searchTeamResPage/searchTeamResPage",
+          "query": "searchText=考研",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/personalInfo/personalInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/myTags/myTags",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/userSearch/userSearch",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/teamDetail/teamDetail",
+          "query": "teamId=49",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

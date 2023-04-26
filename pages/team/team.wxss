@@ -21,9 +21,8 @@
   position: fixed;
   bottom: 150rpx;
   right: 50rpx;
-  background-color: rgba(255, 255, 255, .8);
-  border-radius: 50%;
-  border: 5rpx red solid;
+  /* border-radius: 50%; */
+  /* border: 5rpx red solid; */
 }
 /* 筛选框 */
 .option {

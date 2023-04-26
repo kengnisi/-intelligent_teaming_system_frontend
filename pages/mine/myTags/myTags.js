@@ -12,7 +12,9 @@ Page({
     userInfo: {},
     tagList: [],
     newTagList: [],
-    tagIdList: []
+    tagIdList: [],
+    show: false,
+    tagName: ""
   },
 
   /**
@@ -27,6 +29,49 @@ Page({
       newTagList: JSON.parse(JSON.stringify(this.data.userInfo.tags))
     })
     this.reqTagList()
+  },
+  tagClose(event) {
+    console.log(event.target.dataset.index)
+    const index = event.target.dataset.index
+    const {newTagList} = this.data
+    newTagList.splice(index, 1)
+    this.setData({
+      newTagList
+    })
+  },
+  // 自定义输入框内容变化
+  tagNameChange(e) {
+    console.log(e.detail)
+    this.setData({
+      tagName: e.detail
+    })
+  },
+  // 创建自定义标签
+  create() {
+    if(this.data.newTagList.length >= 5) {
+      Toast('最多选择5个标签');
+      return
+    } 
+    this.setData({
+      show: true
+    })
+  },
+  // 弹出层取消按钮
+  dialogClose() {
+    this.setData({
+      tagName: ""
+    })
+  },
+  // 确认添加标签按钮
+  confirmCreate() {
+    const {newTagList, tagName} = this.data
+    newTagList.push(tagName)
+    console.log(newTagList)
+    this.setData({
+      newTagList,
+      tagName: "",
+      show: false
+    })
   },
   // 获取tag列表
   async reqTagList() {
@@ -65,7 +110,7 @@ Page({
     const isHaving = newTagList.indexOf(tagname)
     if(isHaving != -1) {
       newTagList.splice(isHaving, 1)
-    }else {
+    }else{
       if(newTagList.length >= 5) {
         Toast('最多选择5个标签');
         return

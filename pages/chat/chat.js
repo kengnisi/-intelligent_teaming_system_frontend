@@ -63,7 +63,7 @@ Page({
     teamId: 0,
     teamInfo: {},
     socketTask: null,
-    currentIndex: 1
+    currentIndex: 0
   },
 
   /**
@@ -169,7 +169,7 @@ Page({
     const teamInfo = await getTeamById(this.data.teamId)
     console.log(teamInfo)
     this.setData({
-      teamInfo: teamInfo.data.safeTeamList[0]
+      teamInfo: teamInfo.data[0]
     })
   },
   debounceLoaded,

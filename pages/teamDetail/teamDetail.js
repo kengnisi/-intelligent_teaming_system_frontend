@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teamId: 0
+    teamId: 0,
+    teamInfo: {}
   },
 
   /**
@@ -21,5 +22,8 @@ Page({
   async reqTeamById() {
     const res = await getTeamById(this.data.teamId)
     console.log(res)
+    this.setData({
+      teamInfo: res.data[0]
+    })
   }
 })

@@ -1,2 +1,5 @@
 <!--pages/testUserShow/testUserShow.wxml-->
 <userItem />
+<view>{{numA}} + {{numB}} = {{sum}}</view>
+<van-button type="primary" bindtap="btnHandler" data-step="{{1}}">numA + 1</van-button>
+<van-button type="danger" bindtap="btnHandler" data-step="{{-1}}">numB - 1</van-button>

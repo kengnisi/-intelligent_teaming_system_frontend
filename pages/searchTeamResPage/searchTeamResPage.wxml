@@ -1,0 +1,16 @@
+<!--pages/searchTeamResPage/searchTeamResPage.wxml-->
+<wxs module="btnAuth" src="/utils/getBtnAuth.wxs"></wxs>
+<wxs module="forTime" src="/utils/formatTime.wxs"></wxs>
+<block wx:for="{{teamList}}" wx:key="id">
+  <teamItem id="{{item.id}}" teamItemInfo="{{item}}" userInfo="{{userInfo}}" btnAuth="{{btnAuth.btnAuth(userInfo, item)}}" bind:addTeam="addTeam" bind:renew="renew" />
+</block>
+<!-- 输入密码框 -->
+<van-dialog use-slot title="{{status == 2 ? '密码' : '确认加入队伍'}}" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="confirm">
+  <van-cell-group>
+    <van-field wx:if="{{status == 2}}" value="{{ value }}" placeholder="请输入密码" type="password" border="{{ false }}" bind:change="onChangePsw" />
+  </van-cell-group>
+</van-dialog>
+<!-- 提示框 -->
+<van-toast id="van-toast" />
+<!-- 添加按钮 -->
+<van-icon name="plus" class="addBtn" color="red" size="50px" bindtap="toAddTeam"/>

@@ -14,7 +14,8 @@
       userRole: 0,
       userStatus: 0,
       username: "马六" -->
-<view class="userItem" bindtap="toUserDetail" mark:userId="{{userInfo.id}}">
+<!-- <view class="userItem" bindtap="toUserDetail" mark:userId="{{userInfo.id}}"> -->
+  <view class="userItem" mark:userId="{{userInfo.id}}">
   <view class="avatarAndName" >
     <van-image
       width="6rem"
@@ -33,6 +34,6 @@
   </view>
   <view class="operate">
     <view class="btn1" bindtap="toexchange">联系</view>
-    <view class="btn2" >关注</view>
+    <!-- <view class="btn2" >关注</view> -->
   </view>
 </view>

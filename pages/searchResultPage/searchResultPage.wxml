@@ -1,6 +1,7 @@
 <!--pages/searchResultPage/searchResultPage.wxml-->
 <view class="content">
-  <van-card
+  <userItem userInfo="{{item}}" wx:for="{{searchUser}}" wx:key="id"></userItem>
+  <!-- <van-card
     wx:for="{{searchUser}}"
     wx:key="id"
     desc="{{item.profile}}"
@@ -22,6 +23,6 @@
         {{tagItem}}
       </van-tag>
     </view>
-  </van-card>
+  </van-card> -->
 </view>
 <van-toast id="van-toast" />

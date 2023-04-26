@@ -4,6 +4,7 @@
   value="{{ searchKey }}"
   shape="round"
   placeholder="请输入搜索关键词"
+  bind:change="change"
 />
 <view class="userTagPage">
   <view class="tagListShow option_item" >

@@ -1,2 +1,23 @@
 <!--pages/teamSearch/teamSearch.wxml-->
-<text>pages/teamSearch/teamSearch.wxml</text>
+<van-search
+  use-action-slot
+  value="{{ searchContent }}"
+  shape="round"
+  placeholder="请输入搜索关键词"
+  bind:change="change"
+>
+<view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+<view class="recommend">
+  <van-tag
+    class="item"
+    round wx:key="*this"
+    type="success"
+    wx:for="{{searchKey}}"
+    size="large"
+    bindtap="changeTag"
+    data-tag="{{item}}"
+  >
+    {{item}}
+  </van-tag>
+</view>
